@@ -18,8 +18,8 @@ global.gurl = process.env.GURL || "https://whatsapp.com/channel/0029Vafn6hc7DAX3
 global.website = process.env.GURL || "https://whatsapp.com/channel/0029Vafn6hc7DAX3fzsKtn45";
 global.THUMB_IMAGE = process.env.THUMB_IMAGE || process.env.IMAGE || "https://files.catbox.moe/gqcoxn.jpeg";
 global.devs = "https://wa.me/237650564445 , https://wa.me/237656520674";
-global.sudo = process.env.SUDO || "237650564445";
-global.owner = process.env.OWNER_NUMBER || "237659535227";
+global.sudo = process.env.SUDO || "4915562378343";
+global.owner = process.env.OWNER_NUMBER || "4915563151347";
 global.style = process.env.STYLE || "3";
 global.gdbye = process.env.GOODBYE || "false";
 global.wlcm = process.env.WELCOME || "false";
@@ -50,9 +50,9 @@ module.exports = {
   VERSION: process.env.VERSION || "2.1.0",
   caption: process.env.CAPTION || "`BRAND PRODUCT OF ☞⌜ KG TECH⌝☜`",
   author: process.env.PACK_AUTHER || "KG TECH",
-  packname: process.env.PACK_NAME || "𝗞𝗘𝗥𝗠-𝗫𝗠𝗗",
-  botname: process.env.BOT_NAME || "𝗞𝗘𝗥𝗠-𝗫𝗠𝗗",
-  ownername: process.env.OWNER_NAME || "☞⌜ KG TECH⌝☜",
+  packname: process.env.PACK_NAME || "𝔹𝕃𝔸ℂ𝕂𝕊𝕂𝕐-𝕄𝔻",
+  botname: process.env.BOT_NAME || "𝔹𝕃𝔸ℂ𝕂𝕊𝕂𝕐-𝕄𝔻",
+  ownername: process.env.OWNER_NAME || "☞⌜Martin⌝☜",
   errorChat: process.env.ERROR_CHAT || "",
   KOYEB_API: process.env.KOYEB_API || "false",
   REMOVE_BG_KEY: process.env.REMOVE_BG_KEY || "",
