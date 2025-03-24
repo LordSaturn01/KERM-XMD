@@ -21,7 +21,7 @@ let {
     filename: __filename,
   },
   async (message) => {
-    const channelMessage = `ᵏᵍ┘𝐊𝐄𝐑𝐌_𝐌𝐃-𝐕𝟐└ 𝘾𝙃𝘼𝙉𝙉ᴇ𝙇 𝙎𝙐𝙋𝙋ᴏ𝙍𝙏\n\n _ʜᴇʏ ʜᴇʀᴇ's ᴏᴜʀ ᴄʜᴀɴɴᴇʟ ʟɪɴᴋ, ᴘʟᴇᴀsᴇ ғᴏʟʟᴏᴡ ᴀɴᴅ sᴜᴘᴘᴏʀᴛ ᴜs ᴛᴏ ᴋᴇᴇᴘ ᴛʜɪs ᴘʀᴏᴊᴇᴄᴛ ᴀʟɪᴠᴇ_\n *ʟɪɴᴋ:* https://whatsapp.com/channel/0029Vafn6hc7DAX3fzsKtn45\n\n ${Config.botname} *©Kg Tech*`;
+    const channelMessage = `𝗞𝗘𝗥𝗠-𝗫𝗠𝗗 𝘾𝙃𝘼𝙉𝙉ᴇ𝙇 𝙎𝙐𝙋𝙋ᴏ𝙍𝙏\n\n _ʜᴇʏ ʜᴇʀᴇ's ᴏᴜʀ ᴄʜᴀɴɴᴇʟ ʟɪɴᴋ, ᴘʟᴇᴀsᴇ ғᴏʟʟᴏᴡ ᴀɴᴅ sᴜᴘᴘᴏʀᴛ ᴜs ᴛᴏ ᴋᴇᴇᴘ ᴛʜɪs ᴘʀᴏᴊᴇᴄᴛ ᴀʟɪᴠᴇ_\n *ʟɪɴᴋ:* https://whatsapp.com/channel/0029Vafn6hc7DAX3fzsKtn45\n\n ${Config.botname} *©Kg Tech*`;
 
     const contextInfo = {
       forwardingScore: 999,
@@ -54,7 +54,8 @@ smd(
 
 smd({
    cmdname: "listmessage",
-   alias: ["countmessage", "msgcount"],
+   react: "🤔",
+   alias: ["countmessage", "messages", "message"],
    desc: "Check how many users continuously active in chat!",
    category: "misc",
    filename: __filename
@@ -141,62 +142,10 @@ smd({
      await message.error(error + "\n\ncommand : cmdused", error, "*ERROR!*");
    }
  });
- smd({
-   cmdname: "test",
-   alias: ["check", "checkbot"],
-   desc: "Check if the bot is active",
-   category: "misc",
-   filename: __filename
- }, async (message) => {
-   try {
-     let activeStatusMessage = "*ᵏᵍ┘𝐊𝐄𝐑𝐌_𝐌𝐃-𝐕𝟐└ CURRENTLY ACTIVE BRO👽!*";
-     await message.reply(activeStatusMessage, {
-       contextInfo: {
-         externalAdReply: {
-           title: "ACTIVE",
-           sourceUrl: gurl,
-           showAdAttribution: true,
-           thumbnail: await smdBuffer(await message.getpp())
-         }
-       }
-     }, "asta");
-   } catch (error) {
-     // Handle error if necessary
-   }
- });
-
 smd({
-   cmdname: "caption",
-   desc: "Set caption for replied message",
-   category: "misc",
-   filename: __filename
- }, async (sender, captionText) => {
-   try {
-     if (!sender.reply_message || !captionText) {
-       return await sender.reply(
-         !sender.reply_message 
-         ? "*_Please reply to a message with a caption | filename_*" 
-         : "*Please provide text to set caption man😑!*"
-       );
-     }
-     
-     // Check if the replied message is an image, video, or document
-     if (sender.reply_message.image || sender.reply_message.video || sender.reply_message.mtype.includes("document")) {
-       let filename = "" + captionText.split("|")[1]?.trim() || "null";
-       let caption = sender.reply_message.mtype.includes("document") ? captionText.split("|")[0].trim() : captionText;
-       sender.reply_message.message[sender.reply_message.mtype].caption = caption;
-       sender.reply_message.message[sender.reply_message.mtype].fileName = filename;
-       await sender.bot.copyNForward(sender.chat, sender.reply_message);
-     } else {
-       return await sender.reply("Please reply to an audio/video/document message.");
-     }
-   } catch (error) {
-     await sender.error(error + "\n\nCommand: caption", error, false);
-   }
- });
-
-smd({
-   cmdname: "todoc",
+   cmdname: "doc",
+   react: "📃",
+   alias: ["document", "todoc"],
    desc: "Send document for replied image/video message",
    category: "misc",
    filename: __filename
@@ -233,6 +182,7 @@ smd({
 
 smd({
    cmdname: "tovv",
+   react: "🛟",
    desc: "Send view-once for replied image/video message",
    category: "misc",
    filename: __filename
@@ -284,7 +234,7 @@ smd({
        }
        await sender.send("*Feature Counting Done!*", { edit: messageKey }, "asta", sender);
      } catch (error) {}
-     let featureStats = ` *乂 𝐊𝐄𝐑𝐌 𝐌𝐃 - ＢＯＴ ＦＥＡＴＵＲＥ*\n\n\n  ◦ _Total Features ➪ ${totalFeatures}_\n  \n*◦ LIST DOWN THE FEATURES*\n\n      _Commands ➪ ${Object.values(plugins.commands).filter(command => command.pattern).length}_\n      _Msg Listener ➪ ${Object.values(plugins.commands).filter(command => command.on).length}_\n      _Call Listener ➪ ${Object.values(plugins.commands).filter(command => command.call).length}_\n      _Group Listener ➪ ${Object.values(plugins.commands).filter(command => command.group).length}_\n  \n\n` + Config.caption;
+     let featureStats = ` *乂 𝐊𝐄𝐑𝐌 𝐗𝐌𝐃 - ＢＯＴ ＦＥＡＴＵＲＥ*\n\n\n  ◦ _Total Features ➪ ${totalFeatures}_\n  \n*◦ LIST DOWN THE FEATURES*\n\n      _Commands ➪ ${Object.values(plugins.commands).filter(command => command.pattern).length}_\n      _Msg Listener ➪ ${Object.values(plugins.commands).filter(command => command.on).length}_\n      _Call Listener ➪ ${Object.values(plugins.commands).filter(command => command.call).length}_\n      _Group Listener ➪ ${Object.values(plugins.commands).filter(command => command.group).length}_\n  \n\n` + Config.caption;
      await sender.bot.relayMessage(sender.chat, {
        requestPaymentMessage: {
          currencyCodeIso4217: "NG",
@@ -305,68 +255,6 @@ smd({
      }, {});
    } catch (error) {
      await sender.error(error + "\n\nCommand: feature", error, false);
-   }
- });
- smd({
-   cmdname: "character",
-   category: "fun",
-   use: "[@user]",
-   filename: __filename,
-   info: "Check character of replied USER!"
- }, async (message) => {
-   const user = message.reply_message ? message.reply_message.sender : message.mentionedJid && message.mentionedJid[0] ? message.mentionedJid[0] : "";
-   if (!user || !user.includes("@")) {
-     return await message.reply("*Mention/reply user to check its character!*");
-   }
-   const characters = ["Sigma", "Generous", "Grumpy", "Overconfident", "Obedient", "Good", "Simple", "Kind", "Patient", "Pervert", "Cool", "Helpful", "Brilliant", "Sexy", "Hot", "Gorgeous", "Cute", "Fabulous", "Funny"];
-   const character = characters[Math.floor(Math.random() * characters.length)];
-   let response = "Character of @" + user.split("@")[0] + " is *" + character + "* 🔥⚡";
-   message.send(response, {
-     mentions: [user]
-   }, "asta", message);
- });
-
- smd({
-   cmdname: "poetry",
-   type: "fun",
-   info: "get random poetry lines"
- }, async (message) => {
-   try {
-     let response = await fetch("https://shizoapi.onrender.com/api/texts/shayari?apikey=shizo");
-     let { result } = await response.json();
-     message.reply(response && result ? result : "_Request Denied from Server!_");
-   } catch (error) {
-     await message.error(error + "\n\ncommand : poetry", error, false);
-   }
- });
-
- smd({
-   cmdname: "alexa",
-   category: "ai",
-   use: "[text]",
-   filename: __filename,
-   info: "chat with simsimi alexa ai!"
- }, async (message, userInput) => {
-   try {
-     if (!userInput) {
-       return await message.reply("Hi *" + message.senderName + "*, do you want to talk?");
-     }
-     const requestPayload = {
-       method: "POST",
-       headers: {
-         "Content-Type": "application/x-www-form-urlencoded"
-       },
-       body: "text=" + encodeURIComponent(userInput) + "&lc=en&key="
-     };
-     const response = await fetch("https://api.simsimi.vn/v2/simtalk", requestPayload);
-     const data = await response.json();
-     if (data.status === "200" && data.message) {
-       message.reply(data.message);
-     } else {
-       message.reply("*No Response!*");
-     }
-   } catch (error) {
-     await message.error(error + "\n\ncommand : alexa", error, false);
    }
  });
 
@@ -477,32 +365,72 @@ smd({
      }).catch(reject);
    });
  };
- smd({
-   cmdname: "ss",
-   type: "misc",
-   info: "get random poetry lines"
-}, async (message, args) => {
+
+const tempmail = {};
+const secmailData = {}; // Stockage des emails temporaires
+
+// Créer une adresse email temporaire
+tempmail.create = async () => {
    try {
-     let url = args.split(" ")[0].trim();
-     if (!url) {
-       return await message.reply("*Need URL! Use " + prefix + "ss https://github.com/Kermhack/KERM_MD-v2*");
+     const domainResponse = await axios.get("https://api.mail.tm/domains");
+     if (!domainResponse.data || !domainResponse.data["hydra:member"].length) {
+       throw new Error("No available domains.");
      }
-     let response = await ssweb(url);
-     if (response && response.status == "200") {
-       return await message.send(response.result, {
-         caption: Config.caption
-       }, "amdimg", message);
-     } else {
-       message.send("_No response from server!_");
-     }
+
+     const domain = domainResponse.data["hydra:member"][0].domain;
+     const randomUsername = Math.random().toString(36).substring(2, 10);
+     const email = `${randomUsername}@${domain}`;
+     const password = Math.random().toString(36).substring(2, 15);
+
+     const response = await axios.post("https://api.mail.tm/accounts", { address: email, password });
+     if (!response.data.id) throw new Error("Failed to create email.");
+
+     const token = await tempmail.getToken(email, password);
+     if (!token) throw new Error("Failed to get authentication token.");
+
+     return { email, password, token };
    } catch (error) {
-     await message.error(error + "\n\ncommand : myip", error, "*Request Denied!*");
+     console.log(error);
+     return null;
    }
-});
+};
 
-let tmpUrl = "https://telegra.ph/file/28926e89d8ee962a92f32.jpg";
-const secmailData = {};
+// Récupérer un token d'authentification
+tempmail.getToken = async (email, password) => {
+   try {
+     const response = await axios.post("https://api.mail.tm/token", { address: email, password });
+     return response.data.token;
+   } catch (error) {
+     console.log(error);
+     return null;
+   }
+};
 
+// Récupérer les emails
+tempmail.mails = async (token) => {
+   try {
+     const response = await axios.get("https://api.mail.tm/messages", { headers: { Authorization: `Bearer ${token}` } });
+     return response.data["hydra:member"];
+   } catch (error) {
+     console.log(error);
+     return [];
+   }
+};
+
+// Lire un email spécifique
+tempmail.emailContent = async (token, emailId) => {
+   try {
+     const response = await axios.get(`https://api.mail.tm/messages/${emailId}`, { headers: { Authorization: `Bearer ${token}` } });
+     const htmlBody = response.data.html;
+     const $ = cheerio.load(htmlBody);
+     return $.text();
+   } catch (error) {
+     console.log(error);
+     return null;
+   }
+};
+
+// Commande pour créer une adresse email temporaire
 smd({
    pattern: "tempmail",
    alias: ["tmpmail", "newmail", "tempemail"],
@@ -512,61 +440,44 @@ smd({
    try {
      if (!secmailData[message.sender]) {
        const tempMail = await tempmail.create();
-       if (!tempMail || !tempMail[0]) {
+       if (!tempMail) {
          return await message.reply("*Request Denied!*");
        }
-       const [login, domain] = tempMail[0].split("@");
-       secmailData[message.sender] = {
-         email: tempMail[0],
-         login: login,
-         domain: domain
-       };
+       secmailData[message.sender] = tempMail;
      }
-     var hasImage = false;
-     try {
-       hasImage = await smdBuffer(tmpUrl);
-     } catch (error) {}
-     await message.reply(("*YOUR TEMPMAIL INFO*\n\n\n*EMAIL:* ➪ " + secmailData[message.sender].email + "\n*Login:* ➪ " + secmailData[message.sender].login + "\n*Domain:* ➪ " + secmailData[message.sender].domain + "\n\n\n*USE " + prefix + "checkmail to get latest emails!*\n*USE " + prefix + "delmail to delete current email!*\n\n" + Config.caption).trim(), {
-       contextInfo: {
-         ...(await message.bot.contextInfo("TEMPMAIL", message.senderName, hasImage))
-       }
-     }, "smd", message);
+
+     const mailInfo = secmailData[message.sender];
+     await message.reply(`*YOUR TEMPMAIL INFO*\n\n*EMAIL:* ➪ ${mailInfo.email}\n*USE ${prefix}checkmail to get latest emails!*\n*USE ${prefix}delmail to delete current email!*`);
    } catch (error) {
      console.log(error);
      await message.reply("*Request Denied!*");
    }
 });
 
+// Commande pour vérifier les emails
 smd({
    pattern: "checkmail",
    alias: ["readmail", "reademail"],
    type: "misc",
-   info: "check mails in your temporary email address!"
+   info: "Check mails in your temporary email address!"
 }, async (message) => {
    try {
      const sender = message.sender;
      const tempMailInfo = secmailData[sender];
-     if (!tempMailInfo || !tempMailInfo.email) {
+     if (!tempMailInfo || !tempMailInfo.token) {
        return await message.reply("*You haven't created a temporary email.*\n*Use " + prefix + "tempmail to create an email first!*");
      }
-     const mails = await tempmail.mails(tempMailInfo.login, tempMailInfo.domain);
-     if (!mails || !mails[0] || mails.length === 0) {
+
+     const mails = await tempmail.mails(tempMailInfo.token);
+     if (!mails || mails.length === 0) {
        return await message.reply("*EMPTY ➪ No mails received yet!* \n*Use " + prefix + "delmail to delete mail!*");
      }
-     var hasImage = false;
-     try {
-       hasImage = await smdBuffer(tmpUrl);
-     } catch (error) {}
+
      for (const mail of mails) {
-       const mailContent = await tempmail.emailContent(tempMailInfo.login, tempMailInfo.domain, mail.id);
-       console.log({ emailContent: mailContent });
+       const mailContent = await tempmail.emailContent(tempMailInfo.token, mail.id);
        if (mailContent) {
-         const mailDetails = "\n*From* ➪ " + mail.from + "\n*Date* ➪  " + mail.date + "\n*EMAIL ID* ➪  [" + mail.id + "]\n*Subject* ➪  " + mail.subject + "\n*Content* ➪  " + mailContent;
-         await message.reply(mailDetails, {
-           contextInfo: {
-             ...(await message.bot.contextInfo("*EMAIL ➪ " + mail.id + "*", message.senderName, hasImage))
-           }
-         }, "smd", message);
+         const mailDetails = `\n*From* ➪ ${mail.from.address} \n*Date* ➪  ${mail.createdAt}\n*EMAIL ID* ➪  [${mail.id}]\n*Subject* ➪  ${mail.subject}\n*Content* ➪  ${mailContent}`;
+         await message.reply(mailDetails);
        }
      }
    } catch (error) {
@@ -575,6 +486,7 @@ smd({
    }
 });
 
+// Commande pour supprimer un email temporaire
 smd({
    pattern: "delmail",
    alias: ["deletemail", "deltemp", "deltmp"],
@@ -594,54 +506,3 @@ smd({
      await message.reply("*Request Denied!*");
    }
 });
-
-const tempmail = {};
-
-tempmail.create = async () => {
-   const apiUrl = "https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=1";
-   try {
-     let response = await fetch(apiUrl);
-     if (!response.ok) {
-       throw new Error("HTTP error! status: " + response.status);
-     }
-     let data = await response.json();
-     return data;
-   } catch (error) {
-     console.log(error);
-     return null;
-   }
-};
-
-tempmail.mails = async (login, domain) => {
-   const apiUrl = "https://www.1secmail.com/api/v1/?action=getMessages&login=" + login + "&domain=" + domain;
-   try {
-     let response = await fetch(apiUrl);
-     if (!response.ok) {
-       throw new Error("HTTP error! status: " + response.status);
-     }
-     let data = await response.json();
-     return data;
-   } catch (error) {
-     console.log(error);
-     return null;
-   }
-};
-
-tempmail.emailContent = async (login, domain, id) => {
-   const apiUrl = "https://www.1secmail.com/api/v1/?action=readMessage&login=" + login + "&domain=" + domain + "&id=" + id;
-   try {
-     let response = await fetch(apiUrl);
-     if (!response.ok) {
-       throw new Error("HTTP error! status: " + response.status);
-     }
-     let data = await response.json();
-     const htmlBody = data.htmlBody;
-     console.log({ htmlContent: htmlBody });
-     const $ = cheerio.load(htmlBody);
-     const textContent = $.text();
-     return textContent;
-   } catch (error) {
-     console.log(error);
-     return null;
-   }
-};

@@ -82,33 +82,33 @@ astro_patch.smd(
         Config.menu.trim().startsWith('1') ||
         Config.menu.toLowerCase().includes('menu1')
       ) {
-        header = '┏彡 *' + Config.botname + '* 彡'
-        categorySymbol = '┃✰༅ ✗'
-        separator = '┗━━━━━━━━━━━━〤'
+        header = '*╭══〘〘' + Config.botname + '〙〙*'
+        categorySymbol = '*┃❍*'
+        separator = '*╰═════════════════⊷*'
         categoryStart = '┌「'
         categoryEnd = '」'
-        endLine = ' |\u263B︎ '
-        footer = '\n└━━━━━━━━━━━━〤'
+        endLine = '*┃❍*'
+        footer = '*┕──────────────❒*'
       } else if (
         header === 2 ||
         Config.menu.trim().startsWith('2') ||
         Config.menu.toLowerCase().includes('menu2')
       ) {
-        header = '┌═[ *' + Config.botname + '* ]'
-        categorySymbol = '¤┃✰༅▷'
-        separator = '╚═════════⋯⋯▷'
+        header = '*╭══〘〘' + Config.botname + '〙〙*'
+        categorySymbol = '*┃❍*'
+        separator = '*╰═════════════════⊷*'
         categoryStart = '┌〈'
         categoryEnd = '〉'
-        endLine = '¤┃✰༅▷ '
-        footer = '\n┃Ꙭ✰༅╚════════⋯⋯▷▷'
+        endLine = '*┃❍* '
+        footer = '*┕──────────────❒*'
       } else {
-        header = '╭【 ' + Config.botname + ' 】'
-        categorySymbol = '│ │'
-        separator = '╰════════════════⊷'
+        header = '*╭══〘〘' + Config.botname + '〙〙*'
+        categorySymbol = '*┃❍*'
+        separator = '*╰═════════════════⊷*'
         categoryStart = '╭─❏'
         categoryEnd = '❏'
-        endLine = '│✰༅'
-        footer = '╰════════════════⊷'
+        endLine = '*┃❍*'
+        footer = '*┕──────────────❒*'
       }
 
       const categorizedCommands = {}
@@ -133,8 +133,7 @@ astro_patch.smd(
         `${categorySymbol} *Commands:* ${commands.length}\n  ` +
         `${categorySymbol} *Usage Trend:* ${trend_usage}\n  ` +
         `${categorySymbol} *Database:* ${database_info}\n  ` +
-        `${separator}\n                   𝒦ℯ𝓇𝓂-𝒳𝓂𝒹\n┃✰༅└─────────── ❉\n` +
-        `|➡︎⭐ 2024 𝒦ℯ𝓇𝓂 & 𝒳𝓂𝒹✦\n└────────────── ❉\n  \n${readmore}\n`
+        `${separator}\n                   𝒦ℯ𝓇𝓂-𝒳𝓂𝒹\n*────────────────❒*\n`
 
       for (const category in categorizedCommands) {
         menuMessage += `${categoryStart} *${tiny(category)}* ${categoryEnd}\n`

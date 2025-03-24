@@ -25,8 +25,8 @@
 
    5. Clone Repo and install required packages
       ```
-      git clone https://github.com/Kgtech-cmr/KERM_MD-V2
-      cd KERM_MD-V2 npm cd
+      git clone https://github.com/Kgtech-cmr/KERM-XMD
+      cd KERM-XMD npm cd
       yarn install --network-concurrency 1
       ```
 
@@ -53,9 +53,9 @@
       ANTI_BAD_WORD = "fuck"
       LEVEL_UP_MESSAGE= true
       WELCOME_MESSAGE =  "*Hi,* @user \n*Welcome in* @gname \n*Member count* : @count th"
-      THEME= KERM_MD-V2
+      THEME= KERM
       WORKTYPE = public
-      PACK_NAME = "Kerm-MD-V2"
+      PACK_NAME = "Kerm-Xmd"
       ANTILINK_VALUES = "chat.whatsapp.com"
       
       ```

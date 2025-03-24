@@ -1,5 +1,5 @@
 while true
 do
-echo "Starting Kerm-Md!"
+echo "Starting Kerm-Xmd!"
 node .
 done
