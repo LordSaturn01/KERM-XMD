@@ -138,28 +138,6 @@ cmd(
     }
   }
 );
-cmd(
-  {
-    pattern: "slog",
-    desc: "Save Message to log number",
-    category: "whatsapp",
-    filename: __filename,
-  },
-  async (message, replyMessage, { cmdName }) => {
-    try {
-      let messageToSave = message.reply_message;
-      if (!messageToSave) {
-        return await message.send("*Uhh Please, reply to a message*");
-      }
-      let savedMessage = await message.bot.forwardOrBroadCast(
-        message.user,
-        messageToSave
-      );
-    } catch (error) {
-      await message.error(error + "\n\ncommand : save", error);
-    }
-  }
-);
 
 cmd(
   {
@@ -431,65 +409,6 @@ cmd(
       });
     } catch (error) {
       await message.error(error + "\n\ncommand : vcard", error);
-    }
-  }
-);
-smd(
-  {
-    pattern: "edit",
-    fromMe: true,
-    desc: "edit message that was sent by bot",
-    type: "whatsapp",
-  },
-  async (message, newText) => {
-    try {
-      let replyMessage =
-        message.reply_message && message.reply_message.fromMe
-          ? message.reply_message
-          : false;
-      if (!replyMessage) {
-        return await message.reply("_Reply to a message that was sent by you!_");
-      }
-      if (!newText) {
-        return await message.reply("_Need text, Example: edit hi_");
-      }
-      return await message.edit(newText, {
-        edit: replyMessage,
-      });
-    } catch (error) {
-      await message.error(error + "\n\ncommand : edit", error);
-    }
-  }
-);
-
-smd(
-  {
-    pattern: "forward",
-    alias: ["send"],
-    desc: "forward your messages to jid",
-    type: "whatsapp",
-  },
-  async (message, jid) => {
-    try {
-      if (!message.reply_message) {
-        return message.reply("*_Reply to something!_*");
-      }
-      let parsedJids = await parsedJid(jid);
-      if (!parsedJids || !parsedJids[0]) {
-        return await message.send(
-          "*Provide jid to forward message*\n*use _" +
-            prefix +
-            "jid,_ to get jid of users!*"
-        );
-      }
-      for (let jidItem of parsedJids) {
-        message.bot.forwardOrBroadCast(
-          jidItem,
-          message.reply_message
-        );
-      }
-    } catch (error) {
-      await message.error(error + "\n\ncommand : forward", error);
     }
   }
 );

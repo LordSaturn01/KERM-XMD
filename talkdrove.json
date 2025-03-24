@@ -34,12 +34,12 @@
         "value": "1"
       },
       "BOT_NAME": {
-        "description": " NAME FOR BOT",
+        "description": " Bot Name",
         "required": false,
         "value": "𝗞𝗘𝗥𝗠-𝗫𝗠𝗗"
       },
       "READ_COMMAND": {
-        "description": " Read bot cmds",
+        "description": " Fill the value true if you want bot to read all commands.",
         "required": false,
         "value": "false"
       },
